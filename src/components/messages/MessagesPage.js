@@ -52,6 +52,7 @@ class MessagesPage extends React.Component {
     return (
       <div>
         <MessagesList messages={messages} deleteMessage={this.deleteMessage}/>
+        //TODO - Move the Snackbar to MessagesList. ControlerViews/Container should not have more than one View/Presentation Components
         <Snackbar
           open={this.state.deleteSnackOpen}
           message="Message Deleted"
@@ -77,6 +78,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
+  // TODO - Implement a decorator to encapsulate handling Unauthorized errors in all actions
   return {
     actions: bindActionCreators(messageActions, dispatch)
   };
